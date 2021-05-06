@@ -3,15 +3,26 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | nickname   | string | null: false |
-| age  | integer | 
 | email  | string | null: false |
 | password  | string | null: false |
 
 ### Association
+- has_one :profile
 - has_many :meals
 - has_many :digitals
 - has_many :communications
 - has_many :conditions
+
+## profilesテーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| age   | integer |
+| height  | integer | 
+| weight  | integer |
+
+### Association
+- belongs_to :user
 
 ## mealsテーブル
 
