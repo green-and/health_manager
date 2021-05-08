@@ -20,6 +20,7 @@
 | age   | integer |
 | height  | integer | 
 | weight  | integer |
+| user | references | null: false, foreign_key :true |
 
 ### Association
 - belongs_to :user
@@ -31,6 +32,7 @@
 | menu   | string | null: false |
 | wheat  | integer | null: false |
 | calory  | integer |
+| user | references | null: false, foreign_key :true |
 
 ### Association
 - belongs_to :user
@@ -40,6 +42,7 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | time   | integer |
+| user | references | null: false, foreign_key :true |
 
 ### Association
 - belongs_to :user
@@ -49,6 +52,7 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | time   | integer |
+| user | references | null: false, foreign_key :true |
 
 ### Association
 - belongs_to :user
@@ -58,6 +62,7 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | level   | integer |
+| user | references | null: false, foreign_key :true |
 
 ### Association
 - belongs_to :user
@@ -67,6 +72,7 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | goal   | integer |
+| user | references | null: false, foreign_key :true |
 
 ### Association
 - belongs_to :user
@@ -77,6 +83,7 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | achievement   | integer |
+| user | references | null: false, foreign_key :true |
 
 ### Association
 - belongs_to :user

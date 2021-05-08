@@ -1,0 +1,13 @@
+<div class="meal_top">
+  <%= form_with model:@meal, local: true do |f| %>
+    <div class="meal_contents">
+      <div class="meal_content_name">食事メニュー</div>
+      <%= f.text_field :menu %>
+      <div class="meal_content_name">小麦の量</div>
+      <%= f.collection_select(:wheat_id, Wheat.all, :id, :name, {}, {class:"wheat-select"}) %>
+      <div class="meal_content_name">カロリー</div>
+      <%= f.text_field :calory %>
+      <%= f.submit '入力する' %>
+    </div>
+  <% end %>
+</div>
