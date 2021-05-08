@@ -4,6 +4,7 @@ class CreateProfiles < ActiveRecord::Migration[6.0]
       t.integer :age
       t.integer :height
       t.integer :weight
+      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end
