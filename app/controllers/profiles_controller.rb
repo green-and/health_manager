@@ -7,7 +7,11 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    Profile.create(profile_params)
+    if Profile.create(profile_params)
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
