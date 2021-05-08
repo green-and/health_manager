@@ -16,8 +16,10 @@ ActiveRecord::Schema.define(version: 2021_05_08_042238) do
     t.string "menu"
     t.integer "wheat_id"
     t.integer "calory"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_meals_on_user_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -43,5 +45,6 @@ ActiveRecord::Schema.define(version: 2021_05_08_042238) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "meals", "users"
   add_foreign_key "profiles", "users"
 end
