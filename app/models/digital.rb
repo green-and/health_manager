@@ -1,0 +1,2 @@
+class Digital < ApplicationRecord
+end
