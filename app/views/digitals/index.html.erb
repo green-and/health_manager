@@ -1,1 +1,9 @@
-digitals#index
+<div class="digital-top">デジタルデバイス
+  <div class="digital-contents">
+    <%= form_with model:@digital, local: true do |f| %>
+      <div class="digital-content-name">使用時間</div>
+      <%= f.text_field :time %>
+      <%= f.submit '登録する' %>
+    <% end %>
+  </div>
+</div>
