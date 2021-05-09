@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :profiles, only: [:index, :new, :create]
   resources :meals, only: [:index, :new ,:create ]
   resources :digitals, only: [:index, :create]
+  resources :communications, only: [:index, :create]
 end

@@ -1,0 +1,9 @@
+<div class="communication-top">コミュニケーション
+  <div class="communication-contents">
+    <%= form_with model:@communication, local: true do |f| %>
+      <div class="communications-content-name">時間</div>
+      <%= f.text_field :time %>
+      <%= f.submit '登録する' %>
+    <% end %>
+  </div>
+</div>
