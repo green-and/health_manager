@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_09_095429) do
+ActiveRecord::Schema.define(version: 2021_05_10_221142) do
 
   create_table "communications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "time"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 2021_05_09_095429) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_digitals_on_user_id"
+  end
+
+  create_table "goals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "wheatgoal_id"
+    t.integer "calory_goal"
+    t.integer "digital_goal"
+    t.integer "communication_goal"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
   create_table "meals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -63,6 +74,7 @@ ActiveRecord::Schema.define(version: 2021_05_09_095429) do
 
   add_foreign_key "communications", "users"
   add_foreign_key "digitals", "users"
+  add_foreign_key "goals", "users"
   add_foreign_key "meals", "users"
   add_foreign_key "profiles", "users"
 end
