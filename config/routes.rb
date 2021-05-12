@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :meals, only: [:index, :new ,:create ]
   resources :digitals, only: [:index, :create]
   resources :communications, only: [:index, :create]
-  resources :goals, only: [:index]
+  resources :goals, only: [:index, :create]
 end
