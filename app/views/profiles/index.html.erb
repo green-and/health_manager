@@ -1,7 +1,24 @@
-profile
-
-<%= link_to 'プロフィール登録', new_profile_path %>
-<%= link_to '食事画面へ', meals_path %>
-<%= link_to 'デジタルデバイス画面へ', digitals_path %>
-<%= link_to 'コミュニケーション時間', communications_path %>
-<%= link_to '目標値登録', goals_path %>
+<div class="top-menu">
+  <div class="top-menu-contents">
+    <%= link_to 'プロフィール登録', new_profile_path %>
+    <%= link_to '食事画面へ', meals_path %>
+    <%= link_to 'デジタルデバイス画面へ', digitals_path %>
+    <%= link_to 'コミュニケーション時間', communications_path %>
+    <%= link_to '目標値登録', goals_path %>
+  </div>
+  <div class="goal">
+    <% @goals.each do |goal| %>
+      <div class="goal-contents">
+        <div class="goal-contents-name">カロリー目標
+          <%= goal.calory_goal %>
+        </div>
+        <div class="goal-contents-name">デジタルデバイス使用時間目標
+          <%= goal.digital_goal %>
+        </div>
+        <div class="goal-contents-name">対話時間目標
+          <%= goal.communication_goal %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
