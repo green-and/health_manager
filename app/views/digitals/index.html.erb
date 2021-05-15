@@ -5,5 +5,18 @@
       <%= f.text_field :time %>
       <%= f.submit '登録する' %>
     <% end %>
+    <div class="goal">目標値
+      <div class="digital-goal">
+        <% @goals.each do |goal| %>
+          <%= goal.digital_goal %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="digital-log">これまでの使用時間履歴
+      <% @digitals.each do |digital| %>
+        <p><%= digital.time %>時間</p>
+      <% end %>
+    </div>
   </div>
 </div>
