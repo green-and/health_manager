@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   def index
     @goals = Goal.where(id: current_user.id)
+    @digitals = current_user.digitals
   end
 
   def new
