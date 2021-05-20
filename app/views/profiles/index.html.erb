@@ -1,5 +1,5 @@
 <header class="header">
-  <span><%= current_user.nickname %></span>
+  <span><%= current_user.nickname %>さんのページ</span>
 </header>
 
 <div class="top-menu">
@@ -26,4 +26,29 @@
     <% end %>
   </div>
 
+  <div class="history-top">
+    <div class="history-category">
+      <div class="history-category-name">食事内容
+        <% @meals.each do |meal| %>
+          <%= meal.menu %>
+          <%= meal.wheat.name %>
+          <%= meal.calory %>cal
+        <% end %>
+      </div>
+    </div>
+    <div class="history-category">
+      <div class="history-category-name">デジタルデバイス使用時間
+        <% @digitals.each do |digital| %>
+          <%= digital.time %>時間
+        <% end %>
+      </div>
+    </div>
+    <div class="history-category">
+      <div class="history-category-name">コミュニケーション時間
+        <% @communications.each do |communication| %>
+          <%= communication.time %>時間
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
