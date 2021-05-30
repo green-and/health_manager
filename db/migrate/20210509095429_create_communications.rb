@@ -3,6 +3,7 @@ class CreateCommunications < ActiveRecord::Migration[6.0]
     create_table :communications do |t|
       t.integer :time
       t.references :user, null: false, foreign_key: true
+      t.date :day
       t.timestamps
     end
   end
