@@ -14,9 +14,13 @@
       <div class="top-menu-category-name"><%= link_to 'コミュニケーション時間', communications_path %></div>
     </div>
     <div class="goal">
-      <div class="goal-contents">カロリー目標値：<%= @goal.calory_goal %>kcal</div>
-      <div class="goal-contents">デジタルデバイス目標時間：<%= @goal.digital_goal %>時間</div>
-      <div class="goal-contents">コミュニケーション目標時間：<%= @goal.communication_goal %>時間</div>
+      <% if @goal.present? %>
+        <div class="goal-contents">カロリー目標値：<%= @goal.calory_goal %>kcal</div>
+        <div class="goal-contents">デジタルデバイス目標時間：<%= @goal.digital_goal %>時間</div>
+        <div class="goal-contents">コミュニケーション目標時間：<%= @goal.communication_goal %>時間</div>
+      <% else %>
+        目標値未設定
+      <% end %>
     </div>
   </div>
 
