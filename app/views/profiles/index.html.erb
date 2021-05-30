@@ -1,10 +1,10 @@
-    <header class="header">
-      <div class="user-name"><%= current_user.nickname %>さんのページ</div>
-      <div class="user-profile">
-        <%= link_to 'プロフィール登録', new_profile_path %>
-        <%= link_to '目標値登録', goals_path %>
-      </div>
-  </header>
+<header class="header">
+  <div class="user-name"><%= current_user.nickname %>さんのページ</div>
+  <div class="user-profile">
+    <%= link_to 'プロフィール登録', new_profile_path %>
+    <%= link_to '目標値登録', goals_path %>
+  </div>
+</header>
 
 <div class="top-menu">
   <div class="top-menu-contents">
@@ -14,19 +14,9 @@
       <div class="top-menu-category-name"><%= link_to 'コミュニケーション時間', communications_path %></div>
     </div>
     <div class="goal">
-      <% @goals.each do |goal| %>
-        <div class="goal-contents">
-          <div class="goal-contents-name">カロリー目標
-            <%= goal.calory_goal %>
-          </div>
-          <div class="goal-contents-name">デジタルデバイス使用時間目標
-            <%= goal.digital_goal %>
-          </div>
-          <div class="goal-contents-name">対話時間目標
-           <%= goal.communication_goal %>
-          </div>
-        </div>
-      <% end %>
+      <div class="goal-contents">カロリー目標値：<%= @goal.calory_goal %>kcal</div>
+      <div class="goal-contents">デジタルデバイス目標時間：<%= @goal.digital_goal %>時間</div>
+      <div class="goal-contents">コミュニケーション目標時間：<%= @goal.communication_goal %>時間</div>
     </div>
   </div>
 
@@ -34,22 +24,56 @@
     <div class="history-category">
       <div class="history-category-name">
         <div class="history-contents">食事内容履歴</div>
-          <div class="history-meal"><% @meals.each do |meal| %>
-            <div class="history-menu">食事：<%= meal.menu %></div>
-            <div class="history-wheat">小麦粉：<%= meal.wheat.name %></div>
-            <div class="history-calory">カロリー<%= meal.calory %>cal</div>
-          <% end %></div>
+          <% @meals.each do |meal| %>
+            <div class="contents-meal">
+              <div class="meal-history">
+                <div class="history-menu">食事：<%= meal.menu %></div>
+                <div class="history-wheat">小麦粉：<%= meal.wheat.name %></div>
+                <div class="history-calory">カロリー：<%= meal.calory %>kcal</div>
+              </div>
+              <div class="achieve-history-meal">
+                <div>
+                  <% if meal.wheat_id <= @goal.wheatgoal_id %>
+                    達成
+                  <% else %>
+                    未達成
+                  <% end %>
+                </div>
+                <div>
+                  <% if meal.calory <= @goal.calory_goal %>
+                    達成
+                  <% else %>
+                    未達成
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
       </div>
       <div class="history-category-name">
         <div class="history-contents">デジタルデバイス使用履歴</div>
           <% @digitals.each do |digital| %>
-            <div class="history-digital"><%= digital.time %>時間</div>
+            <span class="content-history">実績：<%= digital.time %>時間</span>
+            <span class="achieve-history">
+              <% if digital.time <= @goal.digital_goal %>
+                達成
+              <% else %>
+                未達成
+              <% end %>
+            </span>
           <% end %>
       </div>
       <div class="history-category-name">
         <div class="history-contents">コミュニケーション時間履歴</div>
           <% @communications.each do |communication| %>
-            <div class="history-communication"><%= communication.time %>時間</div>
+            <span class="content-history">実績：<%= communication.time %>時間</span>
+            <span class="achieve-history">
+              <% if communication.time >= @goal.communication_goal %>
+                達成
+              <% else %>
+                未達成
+              <% end %>
+            </span>
           <% end %>
       </div>
     </div>

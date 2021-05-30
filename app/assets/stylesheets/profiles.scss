@@ -48,9 +48,11 @@ a {
 
 .goal {
   height: 30%;
+  display: flex;
 }
 
 .goal-contents {
+  width: calc(100% / 3);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -89,4 +91,22 @@ a {
   margin-top: 20px;
   text-align: center;
   vertical-align: middle;
+}
+
+.content-history {
+  display: inline-block;
+  width: calc(100% / 2 );
+  padding-left: 50px;
+}
+
+.contents-meal {
+  display: flex;
+}
+
+.achieve-history-meal {
+  bottom: 0;
+  width: 100px;
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-direction: column;
 }
