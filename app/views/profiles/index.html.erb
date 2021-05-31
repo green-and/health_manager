@@ -71,6 +71,7 @@
       <div class="history-category-name">
         <div class="history-contents">コミュニケーション時間履歴</div>
           <% @communications.each do |communication| %>
+            <span class="day">日付：<%= communication.day_on %></span>
             <span class="content-history">実績：<%= communication.time %>時間</span>
             <span class="achieve-history">
               <% if communication.time >= @goal.communication_goal %>

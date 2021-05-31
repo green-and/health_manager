@@ -13,6 +13,6 @@ class CommunicationsController < ApplicationController
 
   private
   def communication_params
-    params.require(:communication).permit(:time).merge(user_id: current_user.id)
+    params.require(:communication).permit(:time, :day_on).merge(user_id: current_user.id)
   end
 end

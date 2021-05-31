@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
     @goal = Goal.where(id: current_user.id).last
     @meals = current_user.meals
     @digitals = current_user.digitals.order(day_on: "DESC")
-    @communications = current_user.communications
+    @communications = current_user.communications.order(day_on: "DESC")
   end
 
   def new
