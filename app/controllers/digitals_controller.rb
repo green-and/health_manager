@@ -11,10 +11,11 @@ class DigitalsController < ApplicationController
     else
       render :index
     end
+    binding.pry
   end
 
   private
   def digital_params
-    params.require(:digital).permit(:time).merge(user_id: current_user.id)
+    params.require(:digital).permit(:time, :day_on).merge(user_id: current_user.id)
   end
 end
