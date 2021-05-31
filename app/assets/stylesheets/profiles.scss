@@ -93,10 +93,15 @@ a {
   vertical-align: middle;
 }
 
+.day {
+  display: inline-block;
+  width: calc(100% / 2.5 );
+  padding-left: 10px;
+}
+
 .content-history {
   display: inline-block;
-  width: calc(100% / 2 );
-  padding-left: 50px;
+  width: calc(100% / 2.5 );
 }
 
 .contents-meal {

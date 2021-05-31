@@ -57,6 +57,7 @@
       <div class="history-category-name">
         <div class="history-contents">デジタルデバイス使用履歴</div>
           <% @digitals.each do |digital| %>
+            <span class="day">日付：<%= digital.day_on %></span>
             <span class="content-history">実績：<%= digital.time %>時間</span>
             <span class="achieve-history">
               <% if digital.time <= @goal.digital_goal %>

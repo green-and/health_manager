@@ -11,7 +11,6 @@ class DigitalsController < ApplicationController
     else
       render :index
     end
-    binding.pry
   end
 
   private
