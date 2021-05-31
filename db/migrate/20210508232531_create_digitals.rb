@@ -3,7 +3,7 @@ class CreateDigitals < ActiveRecord::Migration[6.0]
     create_table :digitals do |t|
       t.integer :time
       t.references :user, null: false, foreign_key: true
-      t.date :day
+      t.date :day_on
       t.timestamps
     end
   end

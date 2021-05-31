@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_05_10_221142) do
   create_table "communications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "time"
     t.bigint "user_id", null: false
-    t.date "day"
+    t.date "day_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_communications_on_user_id"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_05_10_221142) do
   create_table "digitals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "time"
     t.bigint "user_id", null: false
-    t.date "day"
+    t.date "day_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_digitals_on_user_id"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_05_10_221142) do
     t.string "menu"
     t.integer "wheat_id"
     t.integer "calory"
-    t.date "day"
+    t.date "day_on"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
