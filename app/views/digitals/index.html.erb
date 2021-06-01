@@ -2,23 +2,29 @@
   <div class="digital-contents">
     <%= form_with model:@digital, local: true do |f| %>
       <div class="digital-content-name">使用時間
+        <%= f.date_field :day_on %>
         <%= f.text_field :time, id:"digital-input" %>
       </div>
       <%= f.submit '登録する' %>
     <% end %>
     <div class="goal">目標値
       <div class="digital-goal" >
-        <% @goals.each do |goal| %>
-          <div class="goal-int" id="digital-goal"><%= goal.digital_goal %></div>
-        <% end %>
+        <%= @goal.digital_goal %>時間
       </div>
     </div>
     <div class="achievement">達成具合
       <div class="digital-achievement" id="digital-achievement"></div>
     </div>
-    <div class="digital-log">これまでの使用時間履歴
+    <div class="digital-log">これまでの実績
       <% @digitals.each do |digital| %>
-        <p><%= digital.time %>時間</p>
+        <p>使用時間：<%= digital.time %>時間</p>
+          <span>目標達成：
+            <% if digital.time <= @goal.digital_goal %>
+              <span>目標達成</span>
+            <% else %>
+              <span>未達成・・・達成率：<%= (@goal.digital_goal *  100 / digital.time).round(3) %>%</span>
+            <% end %>
+          </span>
       <% end %>
     </div>
   </div>

@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2021_05_10_221142) do
   create_table "communications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "time"
     t.bigint "user_id", null: false
+    t.date "day_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_communications_on_user_id"
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_05_10_221142) do
   create_table "digitals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "time"
     t.bigint "user_id", null: false
+    t.date "day_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_digitals_on_user_id"
@@ -43,10 +45,22 @@ ActiveRecord::Schema.define(version: 2021_05_10_221142) do
     t.string "menu"
     t.integer "wheat_id"
     t.integer "calory"
+    t.date "day_on"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_meals_on_user_id"
+  end
+
+  create_table "performances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "wheat_id"
+    t.integer "calory_pf"
+    t.integer "digital_pf"
+    t.integer "communication_pf"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_performances_on_user_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,5 +90,6 @@ ActiveRecord::Schema.define(version: 2021_05_10_221142) do
   add_foreign_key "digitals", "users"
   add_foreign_key "goals", "users"
   add_foreign_key "meals", "users"
+  add_foreign_key "performances", "users"
   add_foreign_key "profiles", "users"
 end

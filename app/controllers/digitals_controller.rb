@@ -1,7 +1,7 @@
 class DigitalsController < ApplicationController
   def index
     @digital = Digital.new
-    @goals = Goal.where(id: current_user.id)
+    @goal = Goal.where(id: current_user.id).last
     @digitals = current_user.digitals
   end
 
@@ -15,6 +15,6 @@ class DigitalsController < ApplicationController
 
   private
   def digital_params
-    params.require(:digital).permit(:time).merge(user_id: current_user.id)
+    params.require(:digital).permit(:time, :day_on).merge(user_id: current_user.id)
   end
 end
