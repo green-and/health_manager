@@ -30,6 +30,7 @@
         <div class="history-contents">食事内容履歴</div>
           <% @meals.each do |meal| %>
             <div class="contents-meal">
+              <div class="day">日付：<%= meal.day_on %></div>
               <div class="meal-history">
                 <div class="history-menu">食事：<%= meal.menu %></div>
                 <div class="history-wheat">小麦粉：<%= meal.wheat.name %></div>

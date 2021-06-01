@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   def index
     @goal = Goal.where(id: current_user.id).last
-    @meals = current_user.meals
+    @meals = current_user.meals.order(day_on: "DESC")
     @digitals = current_user.digitals.order(day_on: "DESC")
     @communications = current_user.communications.order(day_on: "DESC")
   end
