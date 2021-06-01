@@ -3,6 +3,7 @@
   <div class="user-profile">
     <%= link_to 'プロフィール登録', new_profile_path %>
     <%= link_to '目標値登録', goals_path %>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
   </div>
 </header>
 
