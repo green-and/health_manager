@@ -10,47 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_10_221142) do
-
-  create_table "communications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "time"
-    t.bigint "user_id", null: false
-    t.date "day_on"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_communications_on_user_id"
-  end
-
-  create_table "digitals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "time"
-    t.bigint "user_id", null: false
-    t.date "day_on"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_digitals_on_user_id"
-  end
-
-  create_table "goals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "wheatgoal_id"
-    t.integer "calory_goal"
-    t.integer "digital_goal"
-    t.integer "communication_goal"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_goals_on_user_id"
-  end
-
-  create_table "meals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "menu"
-    t.integer "wheat_id"
-    t.integer "calory"
-    t.date "day_on"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_meals_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2021_05_05_020940) do
 
   create_table "performances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "wheat_id"
@@ -61,16 +21,6 @@ ActiveRecord::Schema.define(version: 2021_05_10_221142) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_performances_on_user_id"
-  end
-
-  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "age"
-    t.integer "height"
-    t.integer "weight"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -86,10 +36,5 @@ ActiveRecord::Schema.define(version: 2021_05_10_221142) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "communications", "users"
-  add_foreign_key "digitals", "users"
-  add_foreign_key "goals", "users"
-  add_foreign_key "meals", "users"
   add_foreign_key "performances", "users"
-  add_foreign_key "profiles", "users"
 end
