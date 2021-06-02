@@ -1,7 +1,7 @@
 class DigitalsController < ApplicationController
   def index
     @digital = Digital.new
-    @goal = Goal.where(id: current_user.id).last
+    @profile = Profile.where(id: current_user.id).last
     @digitals = current_user.digitals
   end
 

@@ -2,7 +2,7 @@
   <div class="user-name"><%= current_user.nickname %>さんのページ</div>
   <div class="user-profile">
     <%= link_to 'プロフィール登録', new_profile_path %>
-    <%= link_to '目標値登録', goals_path %>
+    <%= link_to '目標値登録', profiles_path %>
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
   </div>
 </header>
@@ -15,10 +15,10 @@
       <div class="top-menu-category-name"><%= link_to 'コミュニケーション時間', communications_path %></div>
     </div>
     <div class="goal">
-      <% if @goal.present? %>
-        <div class="goal-contents">カロリー目標値：<%= @goal.calory_goal %>kcal</div>
-        <div class="goal-contents">デジタルデバイス目標時間：<%= @goal.digital_goal %>時間</div>
-        <div class="goal-contents">コミュニケーション目標時間：<%= @goal.communication_goal %>時間</div>
+      <% if @profile.present? %>
+        <div class="goal-contents">カロリー目標値：<%= @profile.calory_goal %>kcal</div>
+        <div class="goal-contents">デジタルデバイス目標時間：<%= @profile.digital_goal %>時間</div>
+        <div class="goal-contents">コミュニケーション目標時間：<%= @profile.communication_goal %>時間</div>
       <% else %>
         目標値未設定
       <% end %>
@@ -39,14 +39,14 @@
               </div>
               <div class="achieve-history-meal">
                 <div>
-                  <% if meal.wheat_id <= @goal.wheatgoal_id %>
+                  <% if meal.wheat_id <= @profile.wheatgoal_id %>
                     達成
                   <% else %>
                     未達成
                   <% end %>
                 </div>
                 <div>
-                  <% if meal.calory <= @goal.calory_goal %>
+                  <% if meal.calory <= @profile.calory_goal %>
                     達成
                   <% else %>
                     未達成
@@ -62,7 +62,7 @@
             <span class="day">日付：<%= digital.day_on %></span>
             <span class="content-history">実績：<%= digital.time %>時間</span>
             <span class="achieve-history">
-              <% if digital.time <= @goal.digital_goal %>
+              <% if digital.time <= @profile.digital_goal %>
                 達成
               <% else %>
                 未達成
@@ -76,7 +76,7 @@
             <span class="day">日付：<%= communication.day_on %></span>
             <span class="content-history">実績：<%= communication.time %>時間</span>
             <span class="achieve-history">
-              <% if communication.time >= @goal.communication_goal %>
+              <% if communication.time >= @profile.communication_goal %>
                 達成
               <% else %>
                 未達成
