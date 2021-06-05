@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   def index
-    @profile = Profile.where(id: current_user.id).last
+    @profile = current_user.profile
     @meals = current_user.meals.order(day_on: "DESC")
     @digitals = current_user.digitals.order(day_on: "DESC")
     @communications = current_user.communications.order(day_on: "DESC")
