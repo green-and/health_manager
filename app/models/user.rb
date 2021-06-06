@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
 
+  belongs_to :wheatgoal, optional: true
   has_one :profile
   has_many :meals
   has_many :digitals

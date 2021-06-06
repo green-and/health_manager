@@ -7,5 +7,5 @@ class Wheatgoal < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_one :goal
+  has_one :profile
 end
