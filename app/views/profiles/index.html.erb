@@ -26,7 +26,10 @@
   <div class="history-top">
     <div class="history-category">
       <div class="history-category-name">
-        <div class="history-contents">食事内容履歴</div>
+        <div class="history-contents">
+          <div class="meal-image"></div>
+          <div class="contents-name">食事内容履歴</div>
+        </div>
           <% @meals.each do |meal| %>
             <div class="contents-meal">
               <div class="day">日付：<%= meal.day_on %></div>
@@ -55,7 +58,10 @@
           <% end %>
       </div>
       <div class="history-category-name">
-        <div class="history-contents">デジタルデバイス使用履歴</div>
+        <div class="history-contents">
+          <div class="digital-image"></div>
+          <div class="contents-name">デジタルデバイス使用時間</div>
+        </div>
           <% @digitals.each do |digital| %>
             <span class="day">日付：<%= digital.day_on %></span>
             <span class="content-history">実績：<%= digital.time %>時間</span>
@@ -69,7 +75,11 @@
           <% end %>
       </div>
       <div class="history-category-name">
-        <div class="history-contents">コミュニケーション時間履歴</div>
+        <div class="history-contents">
+          <div class="communication-image"></div>
+          <div class="contents-name">コミュニケーション時間</div>
+        </div>
+        <div class="history">
           <% @communications.each do |communication| %>
             <span class="day">日付：<%= communication.day_on %></span>
             <span class="content-history">実績：<%= communication.time %>時間</span>
@@ -81,6 +91,7 @@
               <% end %>
             </span>
           <% end %>
+        </div>
       </div>
     </div>
   </div>
