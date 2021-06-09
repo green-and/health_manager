@@ -1,8 +1,9 @@
 <header class="header">
-  <div class="user-name"><%= current_user.nickname %>さんのページ</div>
-  <div class="user-profile">
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-  </div>
+  <div class="user-name" id="user"><%= current_user.nickname %>さんのページ</div>
+  <ul class="hidden-list" id="hidden-list">
+    <li class="pull-down-list">ユーザー情報修正</li>
+    <li class="pull-down-list"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+  </ul>
 </header>
 
 <div class="top-menu">
