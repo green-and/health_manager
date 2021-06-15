@@ -2,6 +2,10 @@ a {
   text-decoration: none;
 }
 
+.hidden-list {
+  display: none;
+}
+
 .user-name a {
   color: white;
 }
@@ -37,7 +41,8 @@ a {
   height: 100%;
   width: calc(100% / 3);
   font-size: 25px;
-  margin: 2px 10px;
+  margin: 2px 30px;
+  border-bottom: 1px solid;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -50,6 +55,7 @@ a {
 
 .goal-contents {
   width: calc(100% / 3);
+  padding: 20px 30px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -73,8 +79,6 @@ a {
 .history-category-name {
   width: calc(100% / 3);
   margin: 0 0.5em;
-  border-right: solid 2px gray;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
 }
 
 .history-meal, .history-digital, .history-communication {
@@ -96,15 +100,10 @@ a {
   position: relative;
 }
 
-.contents-name {
-  position: absolute;
-  margin-top: 20px;
-  width: 90%;
-}
-
 .meal-image, .digital-image, .communication-image {
-  height: 200px;
-  width: 100px;
+  height: 150px;
+  width: 90%;
+  object-fit: contain;
   position: absolute;
   background-size: cover;
 }
@@ -123,8 +122,9 @@ a {
 
 .day {
   display: inline-block;
-  width: calc(100% / 2.5 );
+  width: calc(100% / 5 );
   padding-left: 10px;
+  text-align: center;
 }
 
 
@@ -132,6 +132,21 @@ a {
 .content-history {
   display: inline-block;
   width: calc(100% / 2.5 );
+}
+
+.contents-name {
+  margin-top: 20px;
+  width: 90%;
+  text-align: center;
+}
+
+
+.history-diary {
+  width: 90%;
+  border: 1px ridge;
+  border-radius: 1em;
+  padding: 3px;
+  margin: 10px auto;
 }
 
 .contents-meal {

@@ -19,10 +19,10 @@
       <% @digitals.each do |digital| %>
         <p>使用時間：<%= digital.time %>時間</p>
           <span>目標達成：
-            <% if digital.time <= @goal.digital_goal %>
+            <% if digital.time <= @profile.digital_goal %>
               <span>目標達成</span>
             <% else %>
-              <span>未達成・・・達成率：<%= (@goal.digital_goal *  100 / digital.time).round(3) %>%</span>
+              <span>未達成・・・達成率：<%= (@profile.digital_goal *  100 / digital.time).round(3) %>%</span>
             <% end %>
           </span>
       <% end %>

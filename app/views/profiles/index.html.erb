@@ -1,22 +1,23 @@
 <header class="header">
-  <div class="user-name"><%= current_user.nickname %>さんのページ</div>
-  <div class="user-profile">
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-  </div>
+  <div class="user-name" id="user"><%= current_user.nickname %>さんのページ</div>
+  <ul class="hidden-list" id="hidden-list">
+    <li class="pull-down-list">ユーザー情報修正</li>
+    <li class="pull-down-list"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+  </ul>
 </header>
 
 <div class="top-menu">
   <div class="top-menu-contents">
     <div class="top-menu-category">
-      <div class="top-menu-category-name"><%= link_to '食事画面へ', meals_path %></div>
-      <div class="top-menu-category-name"><%= link_to 'デジタルデバイス画面へ', digitals_path %></div>
-      <div class="top-menu-category-name"><%= link_to 'コミュニケーション時間', communications_path %></div>
+      <div class="top-menu-category-name"><%= link_to '食事', meals_path %></div>
+      <div class="top-menu-category-name"><%= link_to 'デジタルデバイス', digitals_path %></div>
+      <div class="top-menu-category-name"><%= link_to 'コミュニケーション', communications_path %></div>
     </div>
     <div class="goal">
       <% if @profile.present? %>
-        <div class="goal-contents">カロリー目標値：<%= @profile.calory_goal %>kcal</div>
-        <div class="goal-contents">デジタルデバイス目標時間：<%= @profile.digital_goal %>時間</div>
-        <div class="goal-contents">コミュニケーション目標時間：<%= @profile.communication_goal %>時間</div>
+        <div class="goal-contents">目標：<%= @profile.calory_goal %>kcal</div>
+        <div class="goal-contents">目標：<%= @profile.digital_goal %>時間</div>
+        <div class="goal-contents">目標：<%= @profile.communication_goal %>時間</div>
       <% else %>
         目標値未設定
       <% end %>
@@ -28,11 +29,13 @@
       <div class="history-category-name">
         <div class="history-contents">
           <div class="meal-image"></div>
-          <div class="contents-name">食事内容履歴</div>
+
         </div>
-          <% @meals.each do |meal| %>
+        <div class="contents-name">実　績</div>
+        <% @meals.each do |meal| %>
+          <div class="history-diary">
             <div class="contents-meal">
-              <div class="day">日付：<%= meal.day_on %></div>
+              <div class="day"><%= l meal.day_on, format: :short %></div>
               <div class="meal-history">
                 <div class="history-menu">食事：<%= meal.menu %></div>
                 <div class="history-wheat">小麦粉：<%= meal.wheat.name %></div>
@@ -55,15 +58,17 @@
                 </div>
               </div>
             </div>
-          <% end %>
+          </div>
+        <% end %>
       </div>
       <div class="history-category-name">
         <div class="history-contents">
           <div class="digital-image"></div>
-          <div class="contents-name">デジタルデバイス使用時間</div>
         </div>
-          <% @digitals.each do |digital| %>
-            <span class="day">日付：<%= digital.day_on %></span>
+        <div class="contents-name">実　績</div>
+        <% @digitals.each do |digital| %>
+          <div class="history-diary">
+            <span class="day"><%= l digital.day_on, format: :short %></span>
             <span class="content-history">実績：<%= digital.time %>時間</span>
             <span class="achieve-history">
               <% if digital.time <= @profile.digital_goal %>
@@ -72,16 +77,17 @@
                 未達成
               <% end %>
             </span>
-          <% end %>
+          </div>
+        <% end %>
       </div>
       <div class="history-category-name">
         <div class="history-contents">
           <div class="communication-image"></div>
-          <div class="contents-name">コミュニケーション時間</div>
         </div>
-        <div class="history">
-          <% @communications.each do |communication| %>
-            <span class="day">日付：<%= communication.day_on %></span>
+        <div class="contents-name">実　績</div>
+        <% @communications.each do |communication| %>
+          <div class="history-diary">
+            <span class="day"><%= l communication.day_on, format: :short %></span>
             <span class="content-history">実績：<%= communication.time %>時間</span>
             <span class="achieve-history">
               <% if communication.time >= @profile.communication_goal %>
@@ -90,8 +96,8 @@
                 未達成
               <% end %>
             </span>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
