@@ -1,23 +1,26 @@
 <h2>プロフィール登録</h2>
-
-<%= form_with model:@profile, local: true do |f| %>
-  <div class="profile-top">
-    <div class="profile-content">
-      <div class="profile-content-name">年齢</div>
-        <%= f.text_field :age %>
-      <div class="profile-content-name">身長</div>
-        <%= f.text_field :height %>
-      <div class="profile-content-name">体重</div>
-        <%= f.text_field :weight %>
-      <div class="goal-content-name">小麦粉の量</div>
-        <%= f.collection_select(:wheatgoal_id, Wheatgoal.all, :id, :name, {} ) %>
-      <div class="goal-content-name">カロリー目標</div>
-        <%= f.text_field :calory_goal %>
-      <div class="goal-content-name">デジタルデバイス使用時間</div>
-        <%= f.text_field :digital_goal %>
-      <div class="goal-content-name">コミュニケーション時間</div>
-        <%= f.text_field :communication_goal %>
-      <%= f.submit '登録する' %>
+<div class="profile-registration">
+  <%= form_with model:@profile, local: true do |f| %>
+    <div class="profile-top">
+      <div class="profile-content">
+        <div class="profile-content-name">年齢</div>
+          <%= f.text_field :age %>
+        <div class="profile-content-name">身長</div>
+          <%= f.text_field :height %>
+        <div class="profile-content-name">体重</div>
+          <%= f.text_field :weight %>
+      </div>
+      <div class="profile-content">
+        <div class="goal-content-name">小麦粉の量</div>
+          <%= f.collection_select(:wheatgoal_id, Wheatgoal.all, :id, :name, {} ) %>
+        <div class="goal-content-name">カロリー目標</div>
+          <%= f.text_field :calory_goal %>
+        <div class="goal-content-name">デジタルデバイス使用時間</div>
+          <%= f.text_field :digital_goal %>
+        <div class="goal-content-name">コミュニケーション時間</div>
+          <%= f.text_field :communication_goal %>
+        <%= f.submit '登録する' %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
